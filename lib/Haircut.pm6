@@ -11,9 +11,12 @@ class Haircut {
     }
 
     method text-summary returns Str {
-        my $summary =
-            sprintf '%s --> %s: It has been %d day(s).',
-            $.last-cut, $.today, ($.today - $.last-cut);
+        my $summary = chomp sprintf q:to/END/,
+            Today is %s.
+            Your last cut was on %s.
+            It has been %d day(s).
+            END
+            $.today, $.last-cut, ($.today - $.last-cut);
 
         return $summary;
     }

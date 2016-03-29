@@ -34,7 +34,11 @@ subtest {
 
 is(
     $haircut.text-summary,
-    '2015-07-01 --> 2015-08-02: It has been 32 day(s).',
+    chomp(q:to/END/),
+        Today is 2015-08-02.
+        Your last cut was on 2015-07-01.
+        It has been 32 day(s).
+        END
     'Summary of time elapsed since last haircut'
 );
 

@@ -15,7 +15,9 @@ say $haircut.text-summary;
 ...will output something like:
 
 ```text
-2015-07-01 --> 2015-08-02: It has been 32 day(s).
+Today is 2015-08-02.
+Your last cut was on 2015-07-01.
+It has been 32 day(s).
 ```
 
 # DESCRIPTION

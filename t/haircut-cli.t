@@ -9,7 +9,7 @@ my $output = run(
 
 like(
     $output,
-    rx:i/^'2015-07-01 -->'/,
+    rx:i/'last cut was on 2015-07-01'/,
     'CLI output'
 );
 
