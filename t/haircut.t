@@ -11,6 +11,8 @@ use Haircut;
 
     can-ok($haircut, 'last');
     can-ok($haircut, 'now');
+
+    can-ok($haircut, 'since-last-summary');
 }
 
 {
@@ -27,6 +29,12 @@ use Haircut;
     cmp-ok(
         $haircut.now, '==', Date.new('2015-08-02'),
         '\'now\' attribute was coerced to Date'
+    );
+
+    is(
+        $haircut.since-last-summary,
+        '2015-07-01 --> 2015-08-02: It has been 32 day(s).',
+        'Summary of time elapsed since last haircut'
     );
 }
 

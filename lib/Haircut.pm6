@@ -9,6 +9,14 @@ class Haircut {
                                  !! Date.today,
         );
     }
+
+    method since-last-summary returns Str {
+        my $summary =
+            sprintf '%s --> %s: It has been %d day(s).',
+            $.last, $.now, ($.now - $.last);
+
+        return $summary;
+    }
 }
 
 # vim:syntax=perl6:softtabstop=4:shiftwidth=4

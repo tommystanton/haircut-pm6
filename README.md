@@ -8,6 +8,14 @@ Haircut - See how long it's been since your last haircut
 use Haircut;
 
 my $haircut = Haircut.new(last => '2015-07-01');
+
+say $haircut.since-last-summary;
+```
+
+...will output something like:
+
+```text
+2015-07-01 --> 2015-08-02: It has been 32 day(s).
 ```
 
 # DESCRIPTION
