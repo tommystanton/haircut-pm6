@@ -1,23 +1,13 @@
 class Haircut {
-    has DateTime $.last is required;
-    has DateTime $.now;
+    has Date $.last is required;
+    has Date $.now;
 
     method new(:$last, :$now) {
         return self.bless(
-            last => parse-datetime($last),
-            now  => $now.defined ?? parse-datetime($now)
-                                 !! DateTime.now(timezone => 0)
-                                            .truncated-to('day'),
+            last => Date.new($last),
+            now  => $now.defined ?? Date.new($now)
+                                 !! Date.today,
         );
-    }
-
-    sub parse-datetime(Str $ymd) returns DateTime {
-        $ymd ~~ /(\d ** 4)(\d ** 2)(\d ** 2)/;
-        my $year  = $0;
-        my $month = $1;
-        my $day   = $2;
-
-        return DateTime.new(:$year, :$month, :$day);
     }
 }
 

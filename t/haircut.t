@@ -5,7 +5,7 @@ use lib 'lib';
 use Haircut;
 
 {
-    my $haircut = Haircut.new(last => '20150701');
+    my $haircut = Haircut.new(last => '2015-07-01');
 
     isa-ok($haircut, Haircut);
 
@@ -15,20 +15,18 @@ use Haircut;
 
 {
     my $haircut = Haircut.new(
-        last => '20150701',
-        now  => '20150802',
+        last => '2015-07-01',
+        now  => '2015-08-02',
     );
 
-    is(
-        $haircut.last,
-        DateTime.new(year => 2015, month => 7, day => 1),
-        '\'last\' attribute was coerced to DateTime'
+    cmp-ok(
+        $haircut.last, '==', Date.new('2015-07-01'),
+        '\'last\' attribute was coerced to Date'
     );
 
-    is(
-        $haircut.now,
-        DateTime.new(year => 2015, month => 8, day => 2),
-        '\'now\' attribute was coerced to DateTime'
+    cmp-ok(
+        $haircut.now, '==', Date.new('2015-08-02'),
+        '\'now\' attribute was coerced to Date'
     );
 }
 

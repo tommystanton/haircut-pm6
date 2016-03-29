@@ -7,7 +7,7 @@ Haircut - See how long it's been since your last haircut
 ```text
 use Haircut;
 
-my $haircut = Haircut.new(last => '20150701');
+my $haircut = Haircut.new(last => '2015-07-01');
 ```
 
 # DESCRIPTION
