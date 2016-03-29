@@ -5,8 +5,9 @@ class Haircut {
     method new(:$last, :$now) {
         return self.bless(
             last => parse-datetime($last),
-            now  => DateTime.now(timezone => 0)
-                            .truncated-to('day'),
+            now  => $now.defined ?? parse-datetime($now)
+                                 !! DateTime.now(timezone => 0)
+                                            .truncated-to('day'),
         );
     }
 
