@@ -10,7 +10,7 @@ class Haircut {
         );
     }
 
-    method since-last-summary returns Str {
+    method text-summary returns Str {
         my $summary =
             sprintf '%s --> %s: It has been %d day(s).',
             $.last, $.now, ($.now - $.last);

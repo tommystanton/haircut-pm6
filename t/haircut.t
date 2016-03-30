@@ -12,7 +12,7 @@ subtest {
     can-ok($haircut, 'last');
     can-ok($haircut, 'now');
 
-    can-ok($haircut, 'since-last-summary');
+    can-ok($haircut, 'text-summary');
 }, 'Class, accessors, methods' ;
 
 my $haircut = Haircut.new(
@@ -33,7 +33,7 @@ subtest {
 }, 'Coercion to Date objects';
 
 is(
-    $haircut.since-last-summary,
+    $haircut.text-summary,
     '2015-07-01 --> 2015-08-02: It has been 32 day(s).',
     'Summary of time elapsed since last haircut'
 );

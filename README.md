@@ -9,7 +9,7 @@ use Haircut;
 
 my $haircut = Haircut.new(last => '2015-07-01');
 
-say $haircut.since-last-summary;
+say $haircut.text-summary;
 ```
 
 ...will output something like:
