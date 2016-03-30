@@ -38,8 +38,11 @@ is(
         Today is 2015-08-02.
         Your last cut was on 2015-07-01.
         It has been 32 day(s).
+
+        Perhaps your next cut should be on 2015-09-15?
+        (That would be 2 months and 2 weeks from the last cut; 76 day(s) later.)
         END
-    'Summary of time elapsed since last haircut'
+    'Summary regarding haircuts'
 );
 
 done-testing;
