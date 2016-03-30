@@ -1,0 +1,14 @@
+#!/usr/bin/env perl6
+
+use v6;
+
+use lib 'lib';
+use Haircut;
+
+sub MAIN(Str :$last-cut!) {
+    my $haircut = Haircut.new(:$last-cut);
+
+    say $haircut.text-summary;
+}
+
+# vim:syntax=perl6:softtabstop=4:shiftwidth=4

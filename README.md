@@ -20,6 +20,12 @@ say $haircut.text-summary;
 
 # DESCRIPTION
 
+Run this module via its CLI program, like so:
+
+```text
+$ perl6 bin/haircut --last-cut=2015-07-01
+```
+
 Try out the test suite, like so:
 
 ```text
