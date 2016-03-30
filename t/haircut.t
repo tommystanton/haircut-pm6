@@ -5,30 +5,30 @@ use lib 'lib';
 use Haircut;
 
 subtest {
-    my $haircut = Haircut.new(last => '2015-07-01');
+    my $haircut = Haircut.new(last-cut => '2015-07-01');
 
     isa-ok($haircut, Haircut);
 
-    can-ok($haircut, 'last');
-    can-ok($haircut, 'now');
+    can-ok($haircut, 'last-cut');
+    can-ok($haircut, 'today');
 
     can-ok($haircut, 'text-summary');
 }, 'Class, accessors, methods' ;
 
 my $haircut = Haircut.new(
-    last => '2015-07-01',
-    now  => '2015-08-02',
+    last-cut => '2015-07-01',
+    today    => '2015-08-02',
 );
 
 subtest {
     cmp-ok(
-        $haircut.last, '==', Date.new('2015-07-01'),
-        '\'last\' attribute was coerced'
+        $haircut.last-cut, '==', Date.new('2015-07-01'),
+        '\'last-cut\' attribute was coerced'
     );
 
     cmp-ok(
-        $haircut.now, '==', Date.new('2015-08-02'),
-        '\'now\' attribute was coerced'
+        $haircut.today, '==', Date.new('2015-08-02'),
+        '\'today\' attribute was coerced'
     );
 }, 'Coercion to Date objects';
 

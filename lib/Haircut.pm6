@@ -1,19 +1,19 @@
 class Haircut {
-    has Date $.last is required;
-    has Date $.now;
+    has Date $.last-cut is required;
+    has Date $.today;
 
-    method new(:$last, :$now) {
+    method new(:$last-cut, :$today) {
         return self.bless(
-            last => Date.new($last),
-            now  => $now.defined ?? Date.new($now)
-                                 !! Date.today,
+            last-cut => Date.new($last-cut),
+            today    => $today.defined ?? Date.new($today)
+                                       !! Date.today,
         );
     }
 
     method text-summary returns Str {
         my $summary =
             sprintf '%s --> %s: It has been %d day(s).',
-            $.last, $.now, ($.now - $.last);
+            $.last-cut, $.today, ($.today - $.last-cut);
 
         return $summary;
     }
