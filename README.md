@@ -7,9 +7,7 @@ Haircut - See how long it's been since your last haircut
 ```text
 use Haircut;
 
-my $haircut = Haircut.new(last-cut => '2015-07-01');
-
-say $haircut.text-summary;
+Haircut.new.text-summary.say;
 ```
 
 ...will output something like:
@@ -25,10 +23,19 @@ Perhaps your next cut should be on 2015-09-15?
 
 # DESCRIPTION
 
-Run this module via its CLI program, like so:
+Create the flat file database for the software at
+`~/.haircut/store.txt`, where dates of haircuts are listed in
+ascending order.  For example:
 
 ```text
-$ perl6 bin/haircut --last-cut=2015-07-01
+2015-05-01
+2015-07-01
+```
+
+Run the CLI program, like so:
+
+```text
+$ perl6 bin/haircut
 ```
 
 Try out the test suite, like so:

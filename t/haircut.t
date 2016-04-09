@@ -4,33 +4,26 @@ use Test;
 use lib 'lib';
 use Haircut;
 
+use lib 't/lib';
+use Haircut::Test;
+
+ok(generate-store-fixture(), 'Store fixture generated');
+
 subtest {
-    my $haircut = Haircut.new(last-cut => '2015-07-01');
+    my $haircut = Haircut.new: :store-file('t/fixtures/haircut-store.txt');
 
     isa-ok($haircut, Haircut);
 
-    can-ok($haircut, 'last-cut');
     can-ok($haircut, 'today');
+    can-ok($haircut, 'store-file');
 
     can-ok($haircut, 'text-summary');
 }, 'Class, accessors, methods' ;
 
 my $haircut = Haircut.new(
-    last-cut => '2015-07-01',
-    today    => '2015-08-02',
+    store-file => 't/fixtures/haircut-store.txt',
+    today      => Date.new('2015-08-02'),
 );
-
-subtest {
-    cmp-ok(
-        $haircut.last-cut, '==', Date.new('2015-07-01'),
-        '\'last-cut\' attribute was coerced'
-    );
-
-    cmp-ok(
-        $haircut.today, '==', Date.new('2015-08-02'),
-        '\'today\' attribute was coerced'
-    );
-}, 'Coercion to Date objects';
 
 is(
     $haircut.text-summary,
@@ -44,6 +37,8 @@ is(
         END
     'Summary regarding haircuts'
 );
+
+ok(remove-store-fixture(), 'Store fixture removed');
 
 done-testing;
 

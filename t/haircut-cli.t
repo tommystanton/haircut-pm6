@@ -1,9 +1,14 @@
 use v6;
 use Test;
 
+use lib 't/lib';
+use Haircut::Test;
+
+ok(generate-store-fixture(), 'Store fixture generated');
+
 my $output = run(
     'bin/haircut',
-    '--last-cut=2015-07-01',
+    '--store-file=t/fixtures/haircut-store.txt',
     :out
 ).out.slurp-rest;
 
@@ -12,6 +17,8 @@ like(
     rx:i/'last cut was on 2015-07-01'/,
     'CLI output'
 );
+
+ok(remove-store-fixture(), 'Store fixture removed');
 
 done-testing;
 

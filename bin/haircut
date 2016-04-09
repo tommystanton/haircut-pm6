@@ -5,8 +5,15 @@ use v6;
 use lib 'lib';
 use Haircut;
 
-sub MAIN(Str :$last-cut!) {
-    my $haircut = Haircut.new(:$last-cut);
+sub MAIN(Str :$store-file) {
+    my $haircut;
+
+    if $store-file {
+        $haircut = Haircut.new(:$store-file);
+    }
+    else {
+        $haircut = Haircut.new;
+    }
 
     say $haircut.text-summary;
 }
