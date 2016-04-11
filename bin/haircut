@@ -5,7 +5,7 @@ use v6;
 use lib 'lib';
 use Haircut;
 
-sub MAIN(Str :$store-file) {
+sub MAIN($action, Str :$store-file) {
     my $haircut;
 
     if $store-file {
@@ -15,7 +15,15 @@ sub MAIN(Str :$store-file) {
         $haircut = Haircut.new;
     }
 
-    say $haircut.text-summary;
+    given $action {
+        when 'summary' {
+            say $haircut.text-summary;
+        }
+        default {
+            note "'$action': no such action";
+            exit 2;
+        }
+    }
 }
 
 # vim:syntax=perl6:softtabstop=4:shiftwidth=4

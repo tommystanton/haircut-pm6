@@ -35,7 +35,7 @@ ascending order.  For example:
 Run the CLI program, like so:
 
 ```text
-$ perl6 bin/haircut
+$ perl6 bin/haircut summary
 ```
 
 Try out the test suite, like so:
