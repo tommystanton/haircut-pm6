@@ -16,6 +16,8 @@ subtest {
 
     can-ok($haircut, 'today');
     can-ok($haircut, 'store-file');
+    can-ok($haircut, 'cuts');
+    can-ok($haircut, 'last-cut');
 
     can-ok($haircut, 'text-summary');
 }, 'Class, accessors, methods' ;
