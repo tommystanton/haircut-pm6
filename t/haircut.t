@@ -19,7 +19,7 @@ subtest {
     can-ok($haircut, 'last-cut');
 
     can-ok($haircut, 'text-summary');
-}, 'Class, accessors, methods' ;
+}, 'Class, accessors, methods';
 
 my $haircut = Haircut.new(
     store-file => 't/fixtures/haircut-store.txt',
