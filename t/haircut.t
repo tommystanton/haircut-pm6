@@ -10,7 +10,7 @@ use Haircut::Test;
 ok(generate-store-fixture(), 'Store fixture generated');
 
 subtest {
-    my $haircut = Haircut.new: :store-file('t/fixtures/haircut-store.txt');
+    my $haircut = Haircut.new(store-file => $store-fixture);
 
     isa-ok($haircut, Haircut);
 
@@ -23,7 +23,7 @@ subtest {
 }, 'Class, accessors, methods';
 
 my $haircut = Haircut.new(
-    store-file => 't/fixtures/haircut-store.txt',
+    store-file => $store-fixture,
     today      => Date.new('2015-08-02'),
 );
 
@@ -43,7 +43,7 @@ is(
 $haircut.add-cut('2015-09-01');
 
 is(
-    't/fixtures/haircut-store.txt'.IO.lines[*-1],
+    $store-fixture.IO.lines[*-1],
     '2015-09-01',
     'New cut date was stored'
 );

@@ -9,7 +9,7 @@ ok(generate-store-fixture(), 'Store fixture generated');
 {
     my $output = run(
         'bin/haircut',
-        '--store-file=t/fixtures/haircut-store.txt',
+        "--store-file=$store-fixture",
         'foobar',
         :err,
     ).err.slurp-rest;
@@ -24,7 +24,7 @@ ok(generate-store-fixture(), 'Store fixture generated');
 {
     my $output = run(
         'bin/haircut',
-        '--store-file=t/fixtures/haircut-store.txt',
+        "--store-file=$store-fixture",
         'summary',
         :out
     ).out.slurp-rest;
@@ -39,7 +39,7 @@ ok(generate-store-fixture(), 'Store fixture generated');
 {
     my $output = run(
         'bin/haircut',
-        '--store-file=t/fixtures/haircut-store.txt',
+        "--store-file=$store-fixture",
         'add',
         :err
     ).err.slurp-rest;
@@ -54,7 +54,7 @@ ok(generate-store-fixture(), 'Store fixture generated');
 {
     my $output = run(
         'bin/haircut',
-        '--store-file=t/fixtures/haircut-store.txt',
+        "--store-file=$store-fixture",
         'add', '2015-09-01',
         :out
     ).out.slurp-rest;
