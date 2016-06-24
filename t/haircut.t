@@ -15,7 +15,10 @@ subtest {
     isa-ok($haircut, Haircut);
 
     can-ok($haircut, 'today');
+
+    can-ok($haircut, 'config-dir');
     can-ok($haircut, 'store-file');
+
     can-ok($haircut, 'last-cut');
 
     can-ok($haircut, 'add-cut');

@@ -1,9 +1,11 @@
 class Haircut {
     has Date $.today = Date.today;
 
-    has $.store-file = "$*HOME/.haircut/store.txt";
-    has @!cuts       = $!store-file.IO.lines;
-    has $.last-cut   = Date.new: @!cuts[*-1];
+    has $.config-dir = "$*HOME/.haircut";
+    has $.store-file = "$!config-dir/store.txt";
+
+    has @!cuts     = $!store-file.IO.lines;
+    has $.last-cut = Date.new: @!cuts[*-1];
 
     method add-cut(Str $date) {
         spurt($!store-file, "$date\n", :append);
