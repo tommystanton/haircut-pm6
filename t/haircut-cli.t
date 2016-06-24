@@ -36,6 +36,32 @@ ok(generate-store-fixture(), 'Store fixture generated');
     );
 }
 
+{
+    my $output = run(
+        'bin/haircut',
+        '--store-file=t/fixtures/haircut-store.txt',
+        'add',
+        :err
+    ).err.slurp-rest;
+
+    is(
+        $output,
+        "'add': missing date\n",
+        'CLI output for \'add\' (date missing)'
+    );
+}
+
+{
+    my $output = run(
+        'bin/haircut',
+        '--store-file=t/fixtures/haircut-store.txt',
+        'add', '2015-09-01',
+        :out
+    ).out.slurp-rest;
+
+    is($output, "", 'CLI output for \'add\'');
+}
+
 ok(remove-store-fixture(), 'Store fixture removed');
 
 done-testing;

@@ -5,6 +5,10 @@ class Haircut {
     has @!cuts       = $!store-file.IO.lines;
     has $.last-cut   = Date.new: @!cuts[*-1];
 
+    method add-cut(Str $date) {
+        spurt($!store-file, "\n$date", :append);
+    }
+
     method text-summary returns Str {
         my $months   = 2;
         my $weeks    = 2;

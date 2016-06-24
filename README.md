@@ -12,6 +12,14 @@ where dates of haircuts are listed in ascending order.
 
 # ACTIONS
 
+## add
+
+Add a date of a past haircut to the data store.  For example:
+
+```text
+$ perl6 bin/haircut add 2015-09-01
+```
+
 ## summary
 
 ```text

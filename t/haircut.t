@@ -18,6 +18,7 @@ subtest {
     can-ok($haircut, 'store-file');
     can-ok($haircut, 'last-cut');
 
+    can-ok($haircut, 'add-cut');
     can-ok($haircut, 'text-summary');
 }, 'Class, accessors, methods';
 
@@ -37,6 +38,14 @@ is(
         (That would be 2 months and 2 weeks from the last cut; 76 day(s) later.)
         END
     'Summary regarding haircuts'
+);
+
+$haircut.add-cut('2015-09-01');
+
+is(
+    't/fixtures/haircut-store.txt'.IO.lines[*-1],
+    '2015-09-01',
+    'New cut date was stored'
 );
 
 ok(remove-store-fixture(), 'Store fixture removed');
