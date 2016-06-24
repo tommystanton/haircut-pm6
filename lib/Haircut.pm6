@@ -6,7 +6,7 @@ class Haircut {
     has $.last-cut   = Date.new: @!cuts[*-1];
 
     method add-cut(Str $date) {
-        spurt($!store-file, "\n$date", :append);
+        spurt($!store-file, "$date\n", :append);
     }
 
     method text-summary returns Str {

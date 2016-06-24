@@ -11,6 +11,7 @@ class Haircut::Test {
             chomp(q:to/END/),
                 2015-05-01
                 2015-07-01
+
                 END
         );
     }

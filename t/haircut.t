@@ -50,6 +50,18 @@ is(
 
 ok(remove-store-fixture(), 'Store fixture removed');
 
+$haircut.add-cut('2015-05-01');
+$haircut.add-cut('2015-07-01');
+$haircut.add-cut('2015-09-01');
+
+is-deeply(
+    $store-fixture.IO.lines.eager,
+    ( '2015-05-01', '2015-07-01', '2015-09-01', ),
+    'Store file looks right'
+);
+
+ok(remove-store-fixture(), 'Store fixture removed');
+
 done-testing;
 
 # vim:syntax=perl6:softtabstop=4:shiftwidth=4
