@@ -19,8 +19,6 @@ subtest {
     can-ok($haircut, 'config-dir');
     can-ok($haircut, 'store-file');
 
-    can-ok($haircut, 'last-cut');
-
     can-ok($haircut, 'add-cut');
     can-ok($haircut, 'text-summary');
 }, 'Class, accessors, methods';
