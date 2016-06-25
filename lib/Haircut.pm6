@@ -7,6 +7,8 @@ class Haircut {
         $!today      //= Date.today;
         $!config-dir //= "$*HOME/.haircut";
         $!store-file //= "$!config-dir/store.txt";
+
+        mkdir($!config-dir) unless $!config-dir.IO.d;
     }
 
     method add-cut(Str $date) {

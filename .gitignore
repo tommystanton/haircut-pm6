@@ -1,4 +1,5 @@
 t/fixtures/
+t/haircut_config/
 
 # Artifact of Perl 6's optimizations
 .precomp/
