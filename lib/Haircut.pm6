@@ -1,8 +1,13 @@
 class Haircut {
-    has Date $.today = Date.today;
+    has $.today;
+    has $.config-dir;
+    has $.store-file;
 
-    has $.config-dir = "$*HOME/.haircut";
-    has $.store-file = "$!config-dir/store.txt";
+    submethod BUILD(:$!today, :$!config-dir, :$!store-file) {
+        $!today      //= Date.today;
+        $!config-dir //= "$*HOME/.haircut";
+        $!store-file //= "$!config-dir/store.txt";
+    }
 
     method add-cut(Str $date) {
         spurt($!store-file, "$date\n", :append);
